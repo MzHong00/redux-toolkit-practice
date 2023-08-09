@@ -4,28 +4,32 @@ const ADD = "ADD";
 const DELETE = "DELETE";
 
 const addToDo = (text) => {
-    return{
+    return {
         type: ADD,
-        text
+        text: text
     }
 }
 const deleteToDo = (id) => {
-    return{
+    return {
         type: DELETE,
-        id
+        id: id
     }
 }
-const reudcer = (state =[], action) => {
-    switch(action.type) {
+const reudcer = (state = [], action) => {
+    switch (action.type) {
         case ADD:
-            return [{text: action.text, id: Date.now()}, ...state];
+            return [{ text: action.text, id: Date.now() }, ...state];
         case DELETE:
-            return state.filter(toDo => toDo !== action.id);
+            return state.filter(toDo => toDo.id !== action.id);
         default:
             return state;
     }
 }
 
 const store = createStore(reudcer);
+
+export const actionCreators = {
+    addToDo, deleteToDo
+};
 
 export default store;
