@@ -4,7 +4,7 @@ import { add } from "../store";
 
 import ToDo from "../components/ToDo"
 
-function Home({ state, addToDo, deleteToDo }) {
+function Home() {
     const [text, setText] = useState("");
     const toDo = useSelector((state) => {
         return state.toDos;
