@@ -1,23 +1,18 @@
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import { remove } from "../store";
 
-function ToDo({ text, deleteToDo}) {
+function ToDo({text, id}) {
+    const dispatch = useDispatch();
+    const onClick = () => {
+        dispatch(remove(id));
+    }
 
     return (
         <li>
             {text}
-            <button onClick={deleteToDo}>삭제</button>
+            <button onClick={onClick}>삭제</button>
         </li>
     )
 }
 
-function mapDispatchToProps(dispatch, ownProps) {
-
-    return {
-        deleteToDo: () => {
-            dispatch(remove(ownProps.id));
-        }
-    }   
-}
-
-export default connect(null, mapDispatchToProps)(ToDo);
+export default ToDo;

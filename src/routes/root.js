@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./Home";
-import Detail from "./Detail";
 
 export const router = createBrowserRouter([
     {
@@ -9,9 +8,5 @@ export const router = createBrowserRouter([
         children: [
 
         ]
-    },
-    {
-        path: "/:id",
-        element: <Detail></Detail>
-    },
+    }
 ]);

@@ -9,9 +9,10 @@ const toDoSlice = createSlice({
         add: (state, action) => {
             state.toDos.push({ text: action.payload, id: Date.now() });
         },
-        remove: (state, action) =>
-            state.toDos.filter(toDo => toDo.id !== action.payload),
-    }
+        remove: (state, action) => {
+            state.toDos = state.toDos.filter(toDo => toDo.id !== action.payload)
+        }
+    }   
 })
 
 const store = configureStore({
